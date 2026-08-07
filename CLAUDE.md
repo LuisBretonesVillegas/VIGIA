@@ -186,7 +186,8 @@ Si crees que una de estas está justificada, **para y pregúntame**. No la apliq
 ## Git
 
 - Rama única: `main`.
-- No hagas commit ni push sin que yo lo pida; reviso el diff antes.
+- Haz commit al cerrar cada hito lógico, sin preguntar (pedido el 2026-08-07). Push solo
+  cuando yo lo pida.
 - No hagas `git add .` — añade archivos explícitamente.
 - No reescribas historia (`rebase`, `--force`, `reset --hard`) sin que te lo pida.
 
