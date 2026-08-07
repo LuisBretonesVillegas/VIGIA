@@ -1,0 +1,16 @@
+# Unidad systemd de Vigía. Destino: /etc/systemd/system/vigia.service en el LXC 109.
+# Según la guía de obra: revisar línea a línea antes de instalar.
+[Unit]
+Description=Vigia homelab monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=vigia
+EnvironmentFile=/etc/vigia/env
+ExecStart=/usr/bin/java -jar /opt/vigia/vigia.jar --vigia.config=/opt/vigia/checks.yml
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
