@@ -1,5 +1,7 @@
-# Unidad systemd de Vigía. Destino: /etc/systemd/system/vigia.service en el LXC 109.
+# Unidad systemd de Vigía. Destino: /etc/systemd/system/vigia.service en el LXC.
 # Según la guía de obra: revisar línea a línea antes de instalar.
+# Requiere el sysctl de 99-vigia-ping.conf para que los checks de ping
+# funcionen con el usuario sin privilegios.
 [Unit]
 Description=Vigia homelab monitor
 After=network-online.target
