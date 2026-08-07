@@ -1,0 +1,8 @@
+# Config mínima para los tests de contexto: un ping local con intervalo enorme
+# para que solo se ejecute una vez durante el arranque del test.
+checks:
+  - name: localhost
+    type: ping
+    target: 127.0.0.1
+    interval_seconds: 3600
+    failures_before_alert: 3

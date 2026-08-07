@@ -1,0 +1,13 @@
+# Ejemplo de configuración de Vigía. El checks.yml real (con los servicios del
+# homelab) vive fuera del repo y se pasa con --vigia.config=/ruta/checks.yml
+checks:
+  - name: web-ejemplo
+    type: http
+    target: https://example.com
+    interval_seconds: 60
+    failures_before_alert: 3
+  - name: gateway
+    type: ping
+    target: 192.168.1.1
+    interval_seconds: 60
+    failures_before_alert: 3
