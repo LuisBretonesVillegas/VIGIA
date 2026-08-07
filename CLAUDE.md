@@ -12,6 +12,7 @@ saltándote una regla.
   producción y alertas por Telegram solo en cambio de estado (UP→DOWN y DOWN→UP).
 - **Stack:** Java 21, Spring Boot 4.1.0, Maven con wrapper (`./mvnw`).
 - **Entrada principal:** `src/main/java/dev/luisbretones/vigia/VigiaApplication.java`
+- **Contexto extra:** @README.md
 - **Alcance v1:** checks http/ping + alertas de caída y recuperación. Fuera de alcance:
   panel web, métricas, endpoints HTTP propios, heartbeat. No añadas nada de eso.
 - **Despliegue final:** jar en un LXC Debian como servicio systemd, usuario sin privilegios.
