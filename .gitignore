@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Entorno y Claude Code ###
+.env
+.env.*
+.claude/settings.local.json
+checks.yml
+checks-smoke.yml
+checks-prod.yml

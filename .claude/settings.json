@@ -1,0 +1,45 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(jq -r '.tool_input.file_path // empty'); case \"$f\" in *.env|*.env.*|*/secrets/*) echo \"Bloqueado: $f contiene secretos.\" >&2; exit 2;; esac; exit 0"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(jq -r '.tool_input.file_path // empty'); case \"$f\" in */src/test/java/*/regression/*) echo \"Bloqueado: los tests de regresion no se editan. Si uno falla, arregla el codigo.\" >&2; exit 2;; esac; exit 0"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(jq -r '.tool_input.file_path // empty'); case \"$f\" in *.java) JAVA_HOME=$HOME/.jdks/temurin-25.0.4 /home/luis/Proyectos/vigia/mvnw -q -f /home/luis/Proyectos/vigia/pom.xml spotless:apply test-compile 1>&2 || exit 2;; esac; exit 0"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "JAVA_HOME=$HOME/.jdks/temurin-25.0.4 /home/luis/Proyectos/vigia/mvnw -q -f /home/luis/Proyectos/vigia/pom.xml test 1>&2 || exit 2"
+          }
+        ]
+      }
+    ]
+  }
+}
