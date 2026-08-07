@@ -188,6 +188,8 @@ Si crees que una de estas está justificada, **para y pregúntame**. No la apliq
 - Rama única: `main`.
 - Haz commit al cerrar cada hito lógico, sin preguntar (pedido el 2026-08-07). Push solo
   cuando yo lo pida.
+- Sin `Co-Authored-By` ni firmas de Claude en los mensajes de commit: la autoría del repo
+  es solo de Luis.
 - No hagas `git add .` — añade archivos explícitamente.
 - No reescribas historia (`rebase`, `--force`, `reset --hard`) sin que te lo pida.
 
