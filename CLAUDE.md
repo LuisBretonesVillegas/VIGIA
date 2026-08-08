@@ -170,15 +170,15 @@ Resume qué has intentado, qué has descartado y cuál es tu mejor hipótesis, y
 
 Estas son las formas de aparentar que algo funciona sin que funcione. **No hagas ninguna:**
 
-- ❌ Modificar, relajar o borrar un test para que pase. Si un test falla, el problema es el código.
-- ❌ `@Disabled`, comentar tests o bajar el umbral de cobertura.
-- ❌ Hardcodear el valor que espera el test en vez de calcularlo.
-- ❌ `catch` vacío o tragarse excepciones para que el flujo continúe.
-- ❌ Suprimir avisos del compilador (`@SuppressWarnings`) sin explicarme por qué.
-- ❌ Mockear precisamente aquello que se está probando.
-- ❌ Ampliar el alcance: tocar archivos que no tienen que ver con la tarea.
-- ❌ Dejar `TODO`, código muerto, o métodos que devuelven valores falsos "de momento".
-- ❌ Commitear `.env`, claves, tokens o credenciales.
+-  Modificar, relajar o borrar un test para que pase. Si un test falla, el problema es el código.
+-  `@Disabled`, comentar tests o bajar el umbral de cobertura.
+-  Hardcodear el valor que espera el test en vez de calcularlo.
+- `catch` vacío o tragarse excepciones para que el flujo continúe.
+-  Suprimir avisos del compilador (`@SuppressWarnings`) sin explicarme por qué.
+-  Mockear precisamente aquello que se está probando.
+-  Ampliar el alcance: tocar archivos que no tienen que ver con la tarea.
+-  Dejar `TODO`, código muerto, o métodos que devuelven valores falsos "de momento".
+-  Commitear `.env`, claves, tokens o credenciales.
 
 Si crees que una de estas está justificada, **para y pregúntame**. No la apliques por tu cuenta.
 
@@ -189,8 +189,6 @@ Si crees que una de estas está justificada, **para y pregúntame**. No la apliq
 - Rama única: `main`.
 - Haz commit al cerrar cada hito lógico, sin preguntar (pedido el 2026-08-07). Push solo
   cuando yo lo pida.
-- Sin `Co-Authored-By` ni firmas de Claude en los mensajes de commit: la autoría del repo
-  es solo de Luis.
 - No hagas `git add .` — añade archivos explícitamente.
 - No reescribas historia (`rebase`, `--force`, `reset --hard`) sin que te lo pida.
 
