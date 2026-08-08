@@ -162,4 +162,3 @@ A test that stays green when you break the code is not testing anything.
 - Checks for nightly jobs: vzdump, rsync, Hyper Backup, PostgreSQL dumps
 - Weekly self-monitoring heartbeat
 - System metrics (disk, RAM, load)
-- ESP32 temperature sensor ingestion
