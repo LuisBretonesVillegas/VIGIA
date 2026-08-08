@@ -81,6 +81,32 @@ development.
   that lets an exception escape `scheduleAtFixedRate` is cancelled forever.
 - **The Telegram token is redacted** from every error message the notifier can throw.
 
+## Why Spring Boot? (isn't that overkill?)
+
+Fair question. A cron job running `curl` could do most of what Vigía does, and no,
+a homelab pinger does not *need* a framework. The honest reasoning:
+
+1. **This is a learning project with production stakes.** The goal was to practice
+   the stack the Java job market actually runs — Maven, Spring configuration and
+   lifecycle, JUnit 5 + AssertJ, packaged deployments — on a problem whose failures
+   I personally care about. A todo-app tutorial teaches syntax; a service my homelab
+   depends on teaches operations: systemd, unprivileged containers, secrets handling,
+   and what happens after `pct reboot`.
+
+2. **The framework footprint is deliberately minimal.** Only the base starter: no
+   web server, no actuator, no Spring Data. What Spring actually provides here is
+   bootstrap and graceful shutdown, externalized configuration (`--vigia.config`,
+   env vars for credentials), logging, the test harness and single-jar packaging.
+   The monitoring engine itself is plain JDK — `java.net.http.HttpClient`,
+   `ScheduledExecutorService`, `ProcessBuilder` — and the state machine is pure
+   Java with zero framework imports. Remove Spring and ~90% of the code survives.
+
+3. **Measured, the overkill is cheap.** 172 MB resident in a 1.5 GB container,
+   0.8 s startup, a 9 MB jar. The cost of the framework is two coffees of RAM;
+   the benefit is that v2 (system metrics, nightly-job checks, sensor ingestion —
+   possibly with real endpoints) grows *into* Spring instead of outgrowing a shell
+   script.
+
 ## Running locally
 
 ```bash
