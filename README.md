@@ -107,6 +107,10 @@ pinger does not need a framework. I picked it anyway, for three reasons.
    nightly-job checks, sensor ingestion) grows into the framework instead of
    outgrowing a shell script.
 
+The full story, including the plan this project replaced and the incident on
+deployment day, is in
+[the blog write-up](https://luisbretones.dev/blog/vigia-homelab-monitoring/).
+
 ## Running locally
 
 ```bash
